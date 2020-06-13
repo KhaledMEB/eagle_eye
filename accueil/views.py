@@ -2,4 +2,4 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse('<h1>ACCUEIL: DASHBOARD</h1>')
+    return render(request, 'accueil/home.html', {'title': 'Accueil'})
