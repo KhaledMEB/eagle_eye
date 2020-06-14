@@ -29,19 +29,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img class="rounded mr-2" width="80" height="60" src="{% static 'vehicules/img/avatars/car1.jpeg' %}" style="width: 80px;height: 60px;"><br></td>
-                            <td style="width: 200px;">
-                                <div><small style="font-size: 16px;"><strong>2019 Volkswagen Caddy</strong></small></div>
-                                <div style="font-size: 16px;"><small style="font-size: 14px;"><strong>VIP:</strong></small><small style="font-size: 14px;margin-left: 6px;">JTDKBRFU9J30593O7 <br></small></div>
-                                <div><small style="font-size: 14px;"><strong>Matricule:</strong></small><small style="font-size: 14px;margin-left: 6px;">12423-119-16<br></small></div>
-                            </td>
-                            <td>Actif</td>
-                            <td>Voiture</td>
-                            <td>Civil</td>
-                            <td>33492,058 Km</td>
-                            <td>Rabaoui Djaloul</td>
-                        </tr>
+                        {% for object in vehicules %}
+                            <tr>
+                                <td><img class="rounded mr-2" width="80" height="60" src="{{ object.image.url }}" style="width: 80px;height: 60px;"><br></td>
+                                <td style="width: 200px;">
+                                    <div><small style="font-size: 16px;"><strong>{{ object.nom }}</strong></small></div>
+                                    <div style="font-size: 16px;"><small style="font-size: 14px;"><strong>VIP:</strong></small><small style="font-size: 14px;margin-left: 6px;">{{ object.vip }}<br></small></div>
+                                    <div><small style="font-size: 14px;"><strong>Matricule:</strong></small><small style="font-size: 14px;margin-left: 6px;">{{ object.matricule }}<br></small></div>
+                                </td>
+                                <td>{{ object.statut}}</td>
+                                <td>{{ object.type_v }}</td>
+                                <td>{{ object.groupe }}</td>
+                                <td>{{ object.compteur }} Km</td>
+                                <td>{{ object.conducteur }}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                     <tfoot>
                         <tr>
