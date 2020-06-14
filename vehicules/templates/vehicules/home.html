@@ -37,7 +37,13 @@
                                     <div style="font-size: 16px;"><small style="font-size: 14px;"><strong>VIP:</strong></small><small style="font-size: 14px;margin-left: 6px;">{{ object.vip }}<br></small></div>
                                     <div><small style="font-size: 14px;"><strong>Matricule:</strong></small><small style="font-size: 14px;margin-left: 6px;">{{ object.matricule }}<br></small></div>
                                 </td>
-                                <td>{{ object.statut}}</td>
+                                {% if object.statut == "Actif" %}
+                                    <td class="text-success font-weight-bold">{{ object.statut}}</td>
+                                {% elif object.statut == "Hors Service" %}
+                                    <td class="text-danger font-weight-bold">{{ object.statut}}</td>
+                                {% else %}
+                                    <td class="text-warning font-weight-bold">{{ object.statut}}</td>
+                                {% endif %}
                                 <td>{{ object.type_v }}</td>
                                 <td>{{ object.groupe }}</td>
                                 <td>{{ object.compteur }} Km</td>
