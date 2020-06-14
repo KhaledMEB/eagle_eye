@@ -6,6 +6,10 @@ __pycache__
 #db.sqlite3
 #media
 
+# khaled #
+*/vehicules_script.py
+*/vehicules.json
+
 # Backup files # 
 *.bak 
 
