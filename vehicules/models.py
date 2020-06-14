@@ -9,3 +9,4 @@ class Vehicule(models.Model):
     groupe = models.CharField(max_length=20)
     compteur = models.IntegerField()
     conducteur = models.CharField(max_length=40)
+    image = models.ImageField(default='default.jpg', upload_to='vehicules_pics')
