@@ -1,6 +1,5 @@
 from django.db import models
 from vehicules.models import Vehicule
-<<<<<<< Updated upstream
 import datetime
 class Event(models.Model):
     title = models.CharField(max_length=200)
@@ -28,19 +27,6 @@ class maintenance(models.Model):
         return f'<p>{self.title}</p><a href="{url}">edit</a>'
     def __str__(self):
         return self.title
-=======
-# Create your models here.
-class Employes(models.Model):
-    name = models.CharField(max_length=20)
-    
-class Maintenance(models.Model):
-    titre = models.CharField(max_length=20)
-    date = models.DateTimeField()
-    description = models.CharField(max_length=100)
-    observation = models.CharField(max_length=100)
-    véhicule = models.ForeignKey(Vehicule, on_delete=models.CASCADE)
-    employe = models.ForeignKey(Employes, on_delete=models.CASCADE)
 
 
 
->>>>>>> Stashed changes
