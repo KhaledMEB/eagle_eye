@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accueil.urls')),
     path('vehicules/', include('vehicules.urls')),
-    path('calendrier/', include('calendrier.urls'))
+    path('calendar/', include('calendrier.urls'))
 ]
 
 if settings.DEBUG:
