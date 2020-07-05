@@ -2,7 +2,8 @@
 {% block content %}
     <h3 class="text-dark mb-0">Gestion de Maintenances Préventives</h3>
     <div>
-        <a href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a><a href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a><a href="{% url 'calendar' %}?{{ day }}"> today </a>
+        <a class="btn btn-info left" href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
+	    <a class="btn btn-info right" href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
         {{ calendar }}
     </div>
 {% endblock content %}

@@ -1,6 +1,7 @@
 from django.db import models
 from vehicules.models import Vehicule
 import datetime
+from django.urls import reverse
 class Event(models.Model):
     title = models.CharField(max_length=200)
     start_time = models.DateTimeField(default=datetime.date.today)

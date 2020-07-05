@@ -1,16 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView)
 import django.views.generic.dates
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 from .utils import Calendar
 from .models import Event
 from django.utils.safestring import mark_safe
 from datetime import datetime, timedelta, date
 import calendar
-#def home(request):
-    #return render(request, 'calendrier/home.html', {'title': 'Calendrier'})
+from django.shortcuts import get_object_or_404
+from .form import EventForm
+def event_view(request):
+    return render(request, 'calendrier/event.html', {'title': 'event'})
+def day_view(request):
+    return render(request, 'calendrier/day.html', {'title': 'event'})
 
 def get_date(req_day):
     if req_day:
@@ -45,3 +49,15 @@ class CalendarView(ListView):
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
         return context
+def event(request, event_id=None):
+    instance = Event()
+    if event_id:
+        instance = get_object_or_404(Event, pk=event_id)
+    else:
+        instance = Event()
+    
+    form = EventForm(request.POST or None, instance=instance)
+    if request.POST and form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('calendar'))
+    return render(request, 'calendrier/event.html', {'form': form})
