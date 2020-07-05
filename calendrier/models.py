@@ -10,7 +10,7 @@ class Event(models.Model):
     @property
     def get_html_url(self):
         url = reverse('event_edit', args=(self.id,))
-        return f'<p>{self.title}</p><a href="{url}">edit</a>'
+        return f'<a href="{url}">{self.title}</a>'
 class employees(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
@@ -25,9 +25,9 @@ class maintenance(models.Model):
     @property
     def get_html_url(self):
         url = reverse('event_edit', args=(self.id,))
-        return f'<p>{self.title}</p><a href="{url}">edit</a>'
+        return f'<p>{self.titre}</p><a href="{url}">edit</a>'
     def __str__(self):
-        return self.title
+        return self.titre
 
 
 
