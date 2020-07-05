@@ -5,7 +5,7 @@ from django.views.generic import (
 import django.views.generic.dates
 from django.urls import reverse_lazy,reverse
 from .utils import Calendar
-from .models import Event
+from .models import maintenance
 from django.utils.safestring import mark_safe
 from datetime import datetime, timedelta, date
 import calendar
@@ -34,7 +34,7 @@ def next_month(d):
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
     return month
 class CalendarView(ListView):
-    model = Event
+    model = maintenance
     template_name = 'calendrier/calendar.html'
     success_url = reverse_lazy("calendar")
     def get_context_data(self, **kwargs):
@@ -50,11 +50,11 @@ class CalendarView(ListView):
         context['next_month'] = next_month(d)
         return context
 def event(request, event_id=None):
-    instance = Event()
+    instance = maintenance()
     if event_id:
         instance = get_object_or_404(Event, pk=event_id)
     else:
-        instance = Event()
+        instance = maintenance()
     
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
