@@ -10,7 +10,7 @@
 
 .calendar th {
   padding: 10px;
-  text-align: left;
+  text-align: center;
   font-size: 18px;
 }
 
@@ -45,7 +45,9 @@ a {
   .right {
     float: right;
   }
-  
+  .center{
+    float: center;
+  }
   .btn {
     outline: none;
     color: black;

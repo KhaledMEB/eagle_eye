@@ -15,10 +15,11 @@ class Calendar(HTMLCalendar):
         events_per_day = events.filter(date__day=day)
         d = ''
         for event in events_per_day:
-            d += f'<li class="calendar_list"> {event.get_html_url} </li>'
+            d += f'<li class="calendar_list badge badge-dark"> {event.get_html_url} </li>'
         if day != 0:
             #url=reverse('day_view', args=('{self.year}-{self.month}-{day}'))
-            return "<td ><span class='date'>%s</span><ul> %s </ul></td>" %(
+            
+            return "<td class='btn-light btn-sm'><span class='date'>%s</span><ul > %s </ul></td>" %(
                 day,d
             )
         return '<td></td>'
@@ -53,7 +54,7 @@ class Calendar(HTMLCalendar):
             self.cssclasses_weekday_head[day], self.day_abbr[day])
     def formatmonth(self, withyear=True):
         events = maintenance.objects.filter(date__year=self.year, date__month=self.month)
-        cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar-table table table-borderless table-condensed table-tight "><thead class="thead-dark text-center">\n'
+        cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar-table calendar table table-borderless table-condensed table-tight "><thead class="btn-primary btn-lg text-center">\n'
         cal += f'{self.formatmonthname(self.year, self.month,withyear=withyear)}\n'
         cal+=f'</thead>'
         cal += f'{self.formatweekheader()}\n'

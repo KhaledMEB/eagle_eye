@@ -2,10 +2,11 @@
 {% block content %}
     <h3 class="text-dark mb-0">Gestion de Maintenances Préventives</h3>
     <div>
-        <a class="btn btn-primary btn-sm d-none d-sm-inline-block left" href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
-        <a class="btn btn-primary btn-sm d-none d-sm-inline-block right" href="{% url 'event_new' %}"> new event </a>
-        <a class="btn btn-primary btn-sm d-none d-sm-inline-block right" href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
-        
+        <div class="btn-group" role="group" aria-label="Basic example">
+        <a class="btn btn-primary btn-sm d-none d-sm-inline-block right " href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
+        <a class="btn btn-primary btn-sm d-none d-sm-inline-block right " href="{% url 'event_new' %}"> new event </a>
+        <a class="btn btn-primary btn-sm d-none d-sm-inline-block right " href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
+    </div>
         
     </div>
     {{ calendar }}
