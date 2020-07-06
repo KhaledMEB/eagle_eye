@@ -7,5 +7,6 @@ urlpatterns = [
     path('', views.CalendarView.as_view(), name='calendar'),
     url(r'^event/new/$', views.event, name='event_new'),
     url(r'^event/edit/(?P<event_id>\d+)/$', views.event, name='event_edit'),
-    path('day/', views.event_view, name='day_view')
+    #path('calendar/<date>', views.DayView,name='day_view'),
+    path('calendar/<int:pk>/', views.PostDetailView.as_view(), name='post-detail'),
 ]

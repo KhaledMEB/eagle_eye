@@ -14,7 +14,7 @@ class Event(models.Model):
 class employees(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
-        return self.title
+        return self.name
 class maintenance(models.Model):
     date = models.DateTimeField(default=datetime.date.today)
     employee = models.ForeignKey(employees,on_delete=models.CASCADE)
@@ -24,8 +24,8 @@ class maintenance(models.Model):
     observation = models.CharField(max_length=200)
     @property
     def get_html_url(self):
-        url = reverse('event_edit', args=(self.id,))
-        return f'<p>{self.titre}</p><a href="{url}">edit</a>'
+        url = reverse('post-detail', kwargs={'pk': self.pk})
+        return f'<a href="{url}">{self.titre}</a>'
     def __str__(self):
         return self.titre
 

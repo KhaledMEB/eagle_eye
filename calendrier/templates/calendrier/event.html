@@ -7,14 +7,16 @@ Event
 
 {% block content %}
 <div class="clearfix">
-  <a class="btn btn-info left" href="{% url 'calendar' %}"> Calendar </a>
+  <a class="btn btn-primary btn-sm d-none d-sm-inline-block left" href="{% url 'calendar' %}"> Calendar </a>
 </div>
 
 <form method="post">
   {% csrf_token %}
   <table class="form form-table">
     {{ form }}
-    <tr><td colspan="2"><button type="submit" class="btn btn-info right"> Submit </button></td></tr>
+    <tr><td colspan="2"><button type="submit" class="btn btn-primary btn-sm d-none d-sm-inline-block"> Submit </button></td></tr>
+    <a class="btn btn-primary btn-sm d-none d-sm-inline-block"
+        role="button" href="#"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;Ajouter un Véhicule</a>
   </table>
 </form>
 {% endblock content %}

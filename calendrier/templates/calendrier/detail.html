@@ -1,0 +1,17 @@
+{% extends "vehicules/base.html" %}
+{% block content %}
+<article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ object.titre }}</a>
+        <small class="text-muted">{{ object.date|date:"F d, Y" }}</small>
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'event_edit' object.id %}">Update</a>
+          </div>
+      </div>
+      <p class="article-content">{{ object.description }}</p>
+      <p class="article-content">{{ object.voiture.nom }}</p>
+      <img class="rounded mr-2" width="80" height="60" src="{{ object.voiture.image.url }}" style="width: 80px;height: 60px;"><br>
+    </div>
+  </article>
+{% endblock content %}
