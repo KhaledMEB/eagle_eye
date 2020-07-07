@@ -9,22 +9,43 @@
   </div>
   </div>
   <div class="card shadow">
-    <div class="card-body">
+    
 <article class="media content-section">
     <div class="media-body">
       <div class="article-metadata">
-        <a class="mr-2" href="#">{{ object.titre }}</a>
-        <small class="text-muted">{{ object.date|date:"F d, Y" }}</small>
-          <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'event_edit' object.id %}">Update</a>
-          </div>
-      </div>
-      <p class="article-content">{{ object.description }}</p>
-      <p class="article-content">{{ object.voiture.nom }}</p>
-      <img class="rounded mr-2" width="80" height="60" src="{{ object.voiture.image.url }}" style="width: 80px;height: 60px;"><br>
+          <div class="card-header py-3 d-sm-flex justify-content-between align-items-center mb-4">
+            <p class="text-primary m-0 font-weight-bold">
+                <a class="mr-2" href="#">{{ object.titre }}</a>
+                <small class="text-muted">{{ object.date|date:"F d, Y" }}</small>
+            </p>
+            <div class="clearfix">
+                <a class="btn btn-primary btn-sm d-none d-sm-inline-block right" href="{% url 'event_edit' object.id %}">Update</a>
+            </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+              <div class=" col-lg-7">
+                  
+                    
+                        <div class="row"><p class=" col-sm-5">Véhicule :</p><p class="article-content">  {{ object.voiture.nom }}</p> </div>
+                        <div class="row"><p class=" col-sm-5">Matriculé :</p><p class="article-content">  {{object.voiture.matricule }}</p></div> 
+                        <div class="row"><p class=" col-sm-5">Description :</p><p class="article-content "> {{ object.description }}</p></div>  
+                        <div class="row"><p class=" col-sm-5">Employé :</p><p class="article-content "> {{ object.employee }}</p> </div>
+                    
+                    <!--<div class=" col-sm-5">
+                        <p class="article-content">  {{ object.voiture.nom }}</p>
+                        <p class="article-content">  {{object.voiture.matricule }}</p>
+                        <p class="article-content "> {{ object.description }}</p>
+                        <p class="article-content "> {{ object.employee }}</p>
+                    </div></div>-->
+            </div>
+            <div>
+                <img class="rounded mr-2" width="80" height="60" src="{{ object.voiture.image.url }}" style="width: 400px;height: 300px;"></div>
+            </div>
+      
     </div>
   </article>
-    </div>
+    </div></div>
   </div>
  
   
