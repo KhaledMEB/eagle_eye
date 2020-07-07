@@ -77,6 +77,7 @@ class EventDetailView(DetailView):
 class PostDetailView(DetailView):
     model = maintenance
     template_name = 'calendrier/detail.html'
+    
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = maintenance

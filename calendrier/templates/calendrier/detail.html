@@ -1,5 +1,15 @@
 {% extends "vehicules/base.html" %}
 {% block content %}
+<div class="d-sm-flex justify-content-between align-items-center mb-4">
+  
+    <h3 class="text-dark mb-0">Gestion de Maintenances Préventives</h3>
+  
+    <div class="clearfix">
+    <a class="btn btn-primary btn-sm d-none d-sm-inline-block left" href="{% url 'calendar' %}"> Calendar </a>
+  </div>
+  </div>
+  <div class="card shadow">
+    <div class="card-body">
 <article class="media content-section">
     <div class="media-body">
       <div class="article-metadata">
@@ -14,4 +24,8 @@
       <img class="rounded mr-2" width="80" height="60" src="{{ object.voiture.image.url }}" style="width: 80px;height: 60px;"><br>
     </div>
   </article>
+    </div>
+  </div>
+ 
+  
 {% endblock content %}

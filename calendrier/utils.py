@@ -19,7 +19,7 @@ class Calendar(HTMLCalendar):
         if day != 0:
             #url=reverse('day_view', args=('{self.year}-{self.month}-{day}'))
             
-            return "<td class='btn-light btn-sm'><span class='date'>%s</span><ul > %s </ul></td>" %(
+            return "<td class='btn-light btn-sm'><span class='date'>%s</span><ul  > %s </ul></td>" %(
                 day,d
             )
         return '<td></td>'
@@ -50,11 +50,11 @@ class Calendar(HTMLCalendar):
         """
         Return a weekday name as a table header.
         """
-        return '<th class="%s">%s</th>' % (
+        return '<th class="%s btn-light">%s</th>' % (
             self.cssclasses_weekday_head[day], self.day_abbr[day])
     def formatmonth(self, withyear=True):
         events = maintenance.objects.filter(date__year=self.year, date__month=self.month)
-        cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar-table calendar table table-borderless table-condensed table-tight "><thead class="btn-primary btn-lg text-center">\n'
+        cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar-table calendar table table-borderless table-condensed table-tight "><thead class="btn-primary btn-lg text-center"><p class="text-primary m-0 font-weight-bold"></p>\n'
         cal += f'{self.formatmonthname(self.year, self.month,withyear=withyear)}\n'
         cal+=f'</thead>'
         cal += f'{self.formatweekheader()}\n'
