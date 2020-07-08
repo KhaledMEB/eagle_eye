@@ -36,7 +36,9 @@
                             <tr>
                                 <td><img class="rounded mr-2" width="80" height="60" src="{{ object.image.url }}" style="width: 80px;height: 60px;"><br></td>
                                 <td style="width: 200px;">
-                                    <div><small style="font-size: 16px;"><strong>{{ object.nom }}</strong></small></div>
+                                    <div><small style="font-size: 16px;">
+                                        <a href="{% url 'vehicule-detail' object.id %}"><strong>{{ object.nom }}</strong></a>
+                                    </small></div>
                                     <div style="font-size: 16px;"><small style="font-size: 14px;"><strong>VIP:</strong></small><small style="font-size: 14px;margin-left: 6px;">{{ object.vip }}<br></small></div>
                                     <div><small style="font-size: 14px;"><strong>Matricule:</strong></small><small style="font-size: 14px;margin-left: 6px;">{{ object.matricule }}<br></small></div>
                                 </td>

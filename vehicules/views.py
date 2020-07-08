@@ -15,3 +15,11 @@ class VehiculeListView(ListView):
     context_object_name = 'vehicules'
     # paginator : 10 pages per page
     paginate_by = 10
+
+class VehiculeDetailsView(DetailView):
+    model = Vehicule
+
+class VehiculeCreateView(CreateView):
+    model = Vehicule
+    fields = '__all__'
+    
