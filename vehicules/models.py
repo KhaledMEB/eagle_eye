@@ -10,3 +10,5 @@ class Vehicule(models.Model):
     compteur = models.IntegerField()
     conducteur = models.CharField(max_length=40)
     image = models.ImageField(default='default.jpg', upload_to='vehicules_pics')
+    def __str__(self):
+        return self.nom
