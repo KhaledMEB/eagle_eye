@@ -23,3 +23,7 @@ class VehiculeCreateView(CreateView):
     model = Vehicule
     fields = '__all__'
     
+class VehiculeUpdateView(UpdateView):
+    model = Vehicule
+    fields = '__all__'
+    success_url = '/vehicules'

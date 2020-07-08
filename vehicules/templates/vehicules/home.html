@@ -4,7 +4,7 @@
 <div class="d-sm-flex justify-content-between align-items-center mb-4">
     <h3 class="text-dark mb-0">Gestion &amp; Suivi des Véhicules</h3>
     <a class="btn btn-primary btn-sm d-none d-sm-inline-block"
-        role="button" href="#"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;Ajouter un Véhicule</a></div>
+        role="button" href="{% url 'vehicule-create' %}"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;Ajouter un Véhicule</a></div>
     <div class="card shadow">
         <div class="card-header py-3">
             <p class="text-primary m-0 font-weight-bold">Liste des Véhicules</p>
@@ -37,14 +37,14 @@
                                 <td><img class="rounded mr-2" width="80" height="60" src="{{ object.image.url }}" style="width: 80px;height: 60px;"><br></td>
                                 <td style="width: 200px;">
                                     <div><small style="font-size: 16px;">
-                                        <a href="{% url 'vehicule-detail' object.id %}"><strong>{{ object.nom }}</strong></a>
+                                        <a href="{% url 'vehicule-update' object.id %}"><strong>{{ object.nom }}</strong></a>
                                     </small></div>
                                     <div style="font-size: 16px;"><small style="font-size: 14px;"><strong>VIP:</strong></small><small style="font-size: 14px;margin-left: 6px;">{{ object.vip }}<br></small></div>
                                     <div><small style="font-size: 14px;"><strong>Matricule:</strong></small><small style="font-size: 14px;margin-left: 6px;">{{ object.matricule }}<br></small></div>
                                 </td>
                                 {% if object.statut == "Actif" %}
                                     <td class="text-success font-weight-bold">{{ object.statut}}</td>
-                                {% elif object.statut == "Hors Service" %}
+                                {% elif object.statut == "En Panne" %}
                                     <td class="text-danger font-weight-bold">{{ object.statut}}</td>
                                 {% else %}
                                     <td class="text-warning font-weight-bold">{{ object.statut}}</td>
