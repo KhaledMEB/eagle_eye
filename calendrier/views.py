@@ -12,20 +12,11 @@ import calendar
 from django.shortcuts import get_object_or_404
 from .form import EventForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-def event_view(request):
-    return render(request, 'calendrier/event.html', {'title': 'event'})
-def day_view(request):
-    return render(request, 'calendrier/day.html', {'title': 'event'})
 
 def get_date(req_day):
     if req_day:
         year, month = (int(x) for x in req_day.split('-'))
         return date(year, month, day=1)
-    return datetime.today()
-def get_all_date(req_day):
-    if req_day:
-        year, month, day = (int(x) for x in req_day.split('-'))
-        return date(year,month,day)
     return datetime.today()
 
 def prev_month(d):
@@ -50,9 +41,6 @@ class CalendarView(ListView):
         cal = Calendar(d.year, d.month)
         cal.setfirstweekday(6)
         html_cal = cal.formatmonth()
-        #events = Event.objects.filter(start_time__year=Calendar.year, start_time__month=Calendar.month)
-        #html_day = cal.formatday(d,events)
-        #context['day'] = mark_safe(html_day)
         context['calendar'] = mark_safe(html_cal)
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
@@ -78,10 +66,6 @@ class PostDetailView(DetailView):
     model = maintenance
     template_name = 'calendrier/detail.html'
     
-
-class PostCreateView(LoginRequiredMixin, CreateView):
-    model = maintenance
-    fields = ['titre', 'description']
 
     
 

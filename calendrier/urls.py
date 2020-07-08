@@ -3,10 +3,8 @@ from . import views
 from django.conf.urls import url
 
 urlpatterns = [
-    #path('', views.home, name='calendrier-home'),
     path('', views.CalendarView.as_view(), name='calendar'),
     url(r'^event/new/$', views.event, name='event_new'),
     url(r'^event/edit/(?P<event_id>\d+)/$', views.event, name='event_edit'),
-    #path('calendar/<date>', views.DayView,name='day_view'),
     path('calendar/<int:pk>/', views.PostDetailView.as_view(), name='post-detail'),
 ]

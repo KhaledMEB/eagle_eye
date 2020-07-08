@@ -5,7 +5,7 @@
     <h3 class="text-dark mb-0">Gestion de Maintenances Préventives</h3>
   
     <div class="clearfix">
-    <a class="btn btn-primary btn-sm d-none d-sm-inline-block left" href="{% url 'calendar' %}"> Calendar </a>
+    <a class="btn btn-primary btn-sm d-none d-sm-inline-block left" href="{% url 'calendar' %}"><i class='far fa-calendar-alt fa-lg text-white-50'></i>&nbsp; Calendrier </a>
   </div>
   </div>
   <div class="card shadow">
@@ -19,7 +19,7 @@
                 <small class="text-muted">{{ object.date|date:"F d, Y" }}</small>
             </p>
             <div class="clearfix">
-                <a class="btn btn-primary btn-sm d-none d-sm-inline-block right" href="{% url 'event_edit' object.id %}">Update</a>
+                <a class="btn btn-primary btn-sm d-none d-sm-inline-block right" href="{% url 'event_edit' object.id %}"><i class='fas fa-edit fa-lg text-white-50'></i> &nbsp;Modifier</a>
             </div>
         </div>
         <div class="card-body">
@@ -27,17 +27,17 @@
               <div class=" col-lg-7">
                   
                     
-                        <div class="row"><p class=" col-sm-5">Véhicule :</p><p class="article-content">  {{ object.voiture.nom }}</p> </div>
-                        <div class="row"><p class=" col-sm-5">Matriculé :</p><p class="article-content">  {{object.voiture.matricule }}</p></div> 
-                        <div class="row"><p class=" col-sm-5">Description :</p><p class="article-content "> {{ object.description }}</p></div>  
-                        <div class="row"><p class=" col-sm-5">Employé :</p><p class="article-content "> {{ object.employee }}</p> </div>
-                    
-                    <!--<div class=" col-sm-5">
-                        <p class="article-content">  {{ object.voiture.nom }}</p>
-                        <p class="article-content">  {{object.voiture.matricule }}</p>
-                        <p class="article-content "> {{ object.description }}</p>
-                        <p class="article-content "> {{ object.employee }}</p>
-                    </div></div>-->
+                        <div class="row"><p class=" col-sm-5">Véhicule :</p><p class="article-content col-sm-5">  {{ object.voiture.nom }}</p> </div>
+                        <div class="row"><p class=" col-sm-5">Matricule :</p><p class="article-content col-sm-5">  {{object.voiture.matricule }}</p></div> 
+                        <div class="row"><p class=" col-sm-5">Description :</p><p class="article-content col-sm-5"> {{ object.description }}</p></div>  
+                        <div class="row"><p class=" col-sm-5">Employé :</p><p class="article-content col-sm-5"> {{ object.employee }}</p> </div>
+                        {% if object.etat.name == "en cours" %}
+                            <div class="row"><p class=" col-sm-5">Etat :</p><p class=" text-warning font-weight-bold col-sm-5"> {{object.etat.name}} </p></div>
+                        {% elif object.etat.name == "terminé" %}
+                            <div class="row"><p class=" col-sm-5">Etat :</p><p class="text-success font-weight-bold col-sm-5"> {{object.etat.name}} </p></div>
+                        {% else %}
+                            <div class="row"><p class=" col-sm-5">Etat :</p><p class="text-danger font-weight-bold col-sm-5"> {{object.etat.name}} </p></div> 
+                        {% endif %}
             </div>
             <div>
                 <img class="rounded mr-2" width="80" height="60" src="{{ object.voiture.image.url }}" style="width: 400px;height: 300px;"></div>

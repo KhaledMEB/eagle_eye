@@ -11,17 +11,19 @@ Event
   <h3 class="text-dark mb-0">Gestion de Maintenances Préventives</h3>
 
   <div class="clearfix">
-  <a class="btn btn-primary btn-sm d-none d-sm-inline-block left" href="{% url 'calendar' %}"> Calendar </a>
+  <a class="btn btn-primary btn-sm d-none d-sm-inline-block left" href="{% url 'calendar' %}"><i class='far fa-calendar-alt fa-lg text-white-50'></i>&nbsp; Calendrier </a>
 </div>
 </div>
-<div class="card shadow col-lg-9">
+<div class="card shadow col-lg-9 float-center">
+  <div class="card-header d-sm-flex justify-content-between align-items-centerpy-3">
+  <p class="text-primary m-0 font-weight-bold">Maintenance</p></div>
   <div class="card-body">
 
 <form method="post">
   {% csrf_token %}
   <table class="form form-table align-items-center col-lg-9">
     {{ form }}
-    <tr><td colspan="3"><button type="submit" class="btn-primary btn-sm d-none d-sm-inline-block right "> Submit </button></td></tr>
+    <tr><td colspan="3"><button type="submit" class="btn-primary btn-sm d-none d-sm-inline-block right "> Valider </button></td></tr>
   </table>
 </form>
   </div>

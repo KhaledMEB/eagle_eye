@@ -15,23 +15,15 @@ class Calendar(HTMLCalendar):
         events_per_day = events.filter(date__day=day)
         d = ''
         for event in events_per_day:
-            d += f'<li class="calendar_list badge badge-dark"> {event.get_html_url} </li>'
-        if day != 0:
-            #url=reverse('day_view', args=('{self.year}-{self.month}-{day}'))
-            
-            return "<td class='btn-light btn-sm'><span class='date'>%s</span><ul  > %s </ul></td>" %(
+            if event.etat.name=="en cours":
+                d += f'<li class="calendar_list badge badge-dark"> {event.get_html_url} </li>'
+            elif event.etat.name=="terminé":
+                d += f'<li class="calendar_list badge badge-success"> {event.get_html_url} </li>'
+            else:
+                d += f'<li class="calendar_list badge badge-danger"> {event.get_html_url} </li>' 
+        if day != 0:           
+            return "<td class='btn-light btn-sm col-sm-3'><span class='date'>%s</span><ul  > %s </ul></td>" %(
                 day,d
-            )
-        return '<td></td>'
-    def formatdayevents(self,day,events):
-        events_per_day = events.filter(date__day=day)
-        d = ''
-        for event in events_per_day:
-            d += f'<li class="calendar_list"> {event.get_html_url} </li>'
-        if day != 0:
-            url=reverse('day_view')
-            return "<td ><span class='date'><form action='%s'><input type='hidden' value='%s'><input type='submit' value='%s'>  </form></span><ul> %s </ul></td>" %(
-                url,day,day,d
             )
         return '<td></td>'
     def formatweek(self, theweek, events):
