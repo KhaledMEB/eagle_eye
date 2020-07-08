@@ -19,8 +19,13 @@
                 <small class="text-muted">{{ object.date|date:"F d, Y" }}</small>
             </p>
             <div class="clearfix">
+              
+              
+              
+              {% if object.etat.name != "terminé"%}
                 <a class="btn btn-primary btn-sm d-none d-sm-inline-block right" href="{% url 'event_edit' object.id %}"><i class='fas fa-edit fa-lg text-white-50'></i> &nbsp;Modifier</a>
-            </div>
+              {% endif %}
+              </div>
         </div>
         <div class="card-body">
           <div class="row">
@@ -37,6 +42,10 @@
                             <div class="row"><p class=" col-sm-5">Etat :</p><p class="text-success font-weight-bold col-sm-5"> {{object.etat.name}} </p></div>
                         {% else %}
                             <div class="row"><p class=" col-sm-5">Etat :</p><p class="text-danger font-weight-bold col-sm-5"> {{object.etat.name}} </p></div> 
+                        {% endif %}
+                        {% if object.etat.name == "en cours"%}
+                          <a class="btn btn-success btn-sm d-none d-sm-inline-block right" href="#"><i class='fas fa-edit fa-lg text-white-50'></i> &nbsp;Terminer</a>
+                          <a class="btn btn-danger btn-sm d-none d-sm-inline-block right" href="#"><i class='fas fa-edit fa-lg text-white-50'></i> &nbsp;Annuler</a>
                         {% endif %}
             </div>
             <div>
